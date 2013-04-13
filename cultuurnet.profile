@@ -107,6 +107,10 @@ function cultuurnet_credentials_form_submit($form, &$form_state) {
       variable_set($child, $form_state['values'][$child]);
     }
   }
+
+  // For debugging purposes.
+  // Can be replaced with any other kind of log module after installation.
+  module_enable(array('dblog'));
 }
 
 function cultuurnet_cnapi_api_location_validate($element, &$form_state, $form) {
