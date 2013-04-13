@@ -30,7 +30,7 @@ function cultuurnet_credentials_form($form, &$form_state, &$install_state) {
     'culturefeed_api_shared_secret' => 'fff975c5a8c7ba19ce92969c1879b211',
     'cnapi_api_key' => 'AEBA59E1-F80E-4EE2-AE7E-CEDD6A589CA9',
     'cnapi_api_location' => 'http://build.uitdatabank.be/',
-    'cnapi_lib_version' => '3.1',
+    'cnapi_lib_version' => '1.1',
     'cnapi_output_type' => '1',
   );
 
@@ -85,9 +85,9 @@ function cultuurnet_credentials_form($form, &$form_state, &$install_state) {
     '#type' => 'select',
     '#description' => t('Version identifier of the values XML files.'),
     '#options' => array(
-      '3.0' => '3.0',
-      '3.1' => '3.1',
+      '1.1' => '1.1',
     ),
+    '#default_value' => $defaults['cnapi_lib_version'],
   );
 
   $form['submit'] = array(
