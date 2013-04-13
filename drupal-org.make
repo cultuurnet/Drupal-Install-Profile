@@ -8,7 +8,7 @@ projects[] = admin_menu
 projects[cnapi][type] = module
 projects[cnapi][download][type] = git
 projects[cnapi][download][branch] = "master"
-projects[cnapi][download][url] = https://github.com/davyvandenbremt/cnapi.git
+projects[cnapi][download][url] = https://github.com/cultuurnet/cnapi.git
 
 projects[culturefeed][type] = module
 projects[culturefeed][download][type] = git
