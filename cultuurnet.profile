@@ -26,9 +26,9 @@ function cultuurnet_credentials_form($form, &$form_state, &$install_state) {
   // @todo Get defaults from a webservice in the previous step?
   $defaults = array();
   $defaults += array(
-    'culturefeed_api_application_key' => '',
-    'culturefeed_api_shared_secret' => '',
-    'cnapi_api_key' => '',
+    'culturefeed_api_application_key' => '76163fc774cb42246d9de37cadeece8a',
+    'culturefeed_api_shared_secret' => 'fff975c5a8c7ba19ce92969c1879b211',
+    'cnapi_api_key' => 'AEBA59E1-F80E-4EE2-AE7E-CEDD6A589CA9',
     'cnapi_api_location' => 'http://build.uitdatabank.be/',
     'cnapi_lib_version' => '3.1',
     'cnapi_output_type' => '1',
