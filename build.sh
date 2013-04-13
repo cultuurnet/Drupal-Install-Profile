@@ -9,7 +9,7 @@ mkdir $build_dir;
 
 cd $build_dir;
 
-drush make -y --drupal-org=core "${current_dir}/drupal-org-core.make";
+drush make -y "${current_dir}/drupal-org-core.make";
 
 mkdir profiles/cultuurnet;
 cp -R "${current_dir}"/* ./profiles/cultuurnet/;
