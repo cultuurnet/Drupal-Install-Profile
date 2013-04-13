@@ -77,6 +77,7 @@ function cultuurnet_credentials_form($form, &$form_state, &$install_state) {
   $form['cnapi']['cnapi_output_type'] = array(
     '#title' => t('Output type'),
     '#type' => 'textfield',
+    '#default_value' => $defaults['cnapi_output_type'],
     '#description' => t('Your CultuurNet API output type.'),
   );
 
