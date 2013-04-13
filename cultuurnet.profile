@@ -29,6 +29,9 @@ function cultuurnet_credentials_form($form, &$form_state, &$install_state) {
     'culturefeed_api_application_key' => '',
     'culturefeed_api_shared_secret' => '',
     'cnapi_api_key' => '',
+    'cnapi_api_location' => 'http://build.uitdatabank.be/',
+    'cnapi_lib_version' => '3.1',
+    'cnapi_output_type' => '1',
   );
 
   $form['culturefeed'] = array(
@@ -55,12 +58,63 @@ function cultuurnet_credentials_form($form, &$form_state, &$install_state) {
     '#title' => t('Cnapi'),
   );
 
+  $form['cnapi']['cnapi_api_location'] = array(
+    '#title' => t('API location'),
+    '#type' => t('textfield'),
+    '#default_value' => $defaults['cnapi_api_location'],
+    '#description' => t('The URL where the CultuurNet API resides. End with a slash. Example: http://build.uitdatabank.be/'),
+    '#element_validate' => array('cultuurnet_cnapi_api_location_validate'),
+  );
+
   $form['cnapi']['cnapi_api_key'] = array(
     '#title' => t('API key'),
     '#type' => 'textfield',
     '#default_value' => $defaults['cnapi_api_key'],
-    #required' => TRUE,
+    '#required' => TRUE,
+    '#description' => t('Your CultuurNet API key'),
   );
+
+  $form['cnapi']['cnapi_output_type'] = array(
+    '#title' => t('Output type'),
+    '#type' => 'textfield',
+    '#description' => t('Your CultuurNet API output type.'),
+  );
+
+  $form['cnapi']['cnapi_lib_version'] = array(
+    '#title' => t('Library version'),
+    '#type' => 'select',
+    '#description' => t('Version identifier of the values XML files.'),
+    '#options' => array(
+      '3.0' => '3.0',
+      '3.1' => '3.1',
+    ),
+  );
+
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Continue'),
+  );
+
+  return $form;
 }
 
+function cultuurnet_credentials_form_submit($form, &$form_state) {
+  $fieldsets = array('cnapi', 'culturefeed');
+  foreach ($fieldsets as $fieldset) {
+    $children = element_children($form[$fieldset]);
 
+    foreach ($children as $child) {
+      variable_set($child, $form_state['values'][$child]);
+    }
+  }
+}
+
+function cultuurnet_cnapi_api_location_validate($element, &$form_state, $form) {
+  if (!valid_url($element['#value'], TRUE)) {
+    return form_error($element, t('!name needs to be a valid URL.', array('!name' => $element['title'])));
+  }
+
+  if (drupal_substr($element['#value'], -1) !== '/') {
+    return form_error($element, t('!name needs to end with a slash.', array('!name' => $element['title'])));
+  }
+}
