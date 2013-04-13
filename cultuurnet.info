@@ -1,0 +1,9 @@
+name = CultuurNet
+description = Installation Profile showcasing several CultuurNet modules.
+core = 7.x
+
+dependencies[] = cnapi
+dependencies[] = culturefeed
+dependencies[] = module_filter
+dependencies[] = devel
+dependencies[] = admin_menu_toolbar
