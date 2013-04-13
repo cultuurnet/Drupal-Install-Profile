@@ -3,7 +3,11 @@ description = Installation Profile showcasing several CultuurNet modules.
 core = 7.x
 
 dependencies[] = cnapi
+dependencies[] = cnapi_ui
+dependencies[] = cnapi_browse
+dependencies[] = cnapi_extras
 dependencies[] = culturefeed
+dependencies[] = culturefeed_ui
 dependencies[] = module_filter
 dependencies[] = devel
 dependencies[] = admin_menu_toolbar
