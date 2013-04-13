@@ -12,7 +12,7 @@ function cultuurnet_install_tasks(&$install_state) {
   $tasks = array();
 
   $tasks['cultuurnet_credentials_form'] = array(
-    'display_name' => t('CultuurNet credentials'),
+    'display_name' => st('CultuurNet credentials'),
     'display' => TRUE,
     'type' => 'form',
   );
